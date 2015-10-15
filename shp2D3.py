@@ -7,7 +7,7 @@
                               -------------------
         begin                : 2015-10-14
         git sha              : $Format:%H$
-        copyright            : (C) 2015 by roberto marzocchi
+        copyright            : (C) 2015 by roberto marzocchi, roberta fagandini, tiziano cosso
         email                : roberto.marzocchi@gter.it
  ***************************************************************************/
 
