@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/plugins/shp2D3">
+        <file>icon.png</file>
+        <file>new_shp.svg</file>
+        <file>add_shp.svg</file>
+        <file>add_gdal.svg</file>
+    </qresource>
+</RCC>
