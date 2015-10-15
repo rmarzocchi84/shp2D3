@@ -10,8 +10,8 @@
 name=shp2D3
 qgisMinimumVersion=2.0
 description=Convert an ESRI shapefile to 3D using a DEM
-version=0.1
-author=roberto marzocchi
+version=0.1.1
+author=roberto marzocchi, roberta fagandini, tiziano cosso
 email=roberto.marzocchi@gter.it
 
 about=Converts ESRI shapefile vector map to 3D by sampling of elevation raster map
@@ -26,7 +26,7 @@ repository=https://github.com/rmarzocchi84/shp2D3.git
 # changelog=
 
 # Tags are comma separated with spaces allowed
-tags=https://github.com/rmarzocchi84/shp2D3.git
+tags=3d , shapefile , elevation data , dem
 
 homepage=https://github.com/rmarzocchi84/shp2D3.git
 category=Vector
