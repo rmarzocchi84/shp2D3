@@ -37,7 +37,7 @@ import os
 import string 
 import shutil 
 
-
+import GdalTools_utils as Utils
 
 import shapefile
 #import gdal
@@ -58,7 +58,7 @@ class shp2D3:
 
 
     def select_input_raster(self):
-		filename2 = QFileDialog.getOpenFileName(self.dlg, "Select input gdal file ","", '*.tif')
+		filename2 = QFileDialog.getOpenFileName(self.dlg, "Select input gdal file ","", Utils.FileFilter.allRastersFilter())
 		self.dlg.gdal_in.setText(filename2)
 
 
@@ -252,7 +252,9 @@ class shp2D3:
             src_filename = self.dlg.gdal_in.text()
             shp3 = self.dlg.shp_out.text()
 
-            if not shp3 and not src_filename and not text_shp :
+            if not shp3 or not src_filename or not text_shp :
+                self.iface.messageBar().pushMessage("Error", "problem with input", level=QgsMessageBar.CRITICAL)
+            else:
                 text_dbf = text_shp.replace(".shp", ".dbf")
                 text_prj = text_shp.replace(".shp", ".prj") 
                 myshp = open(text_shp, 'rb')
@@ -353,6 +355,6 @@ class shp2D3:
                 #output_file.write("5 fine\n")
                 self.iface.messageBar().pushInfo(u'Finish', u'Shapefile 3D correctly exported')
                 #output_file.write("messaggio\n")
-            else :
-                self.iface.messageBar().pushMessage("Error", "problem with input", level=QgsMessageBar.CRITICAL)
+            #else :
+            #    self.iface.messageBar().pushMessage("Error", "problem with input", level=QgsMessageBar.CRITICAL)
             pass

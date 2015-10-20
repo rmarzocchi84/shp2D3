@@ -10,11 +10,11 @@
 name=shp2D3
 qgisMinimumVersion=2.0
 description=Convert an ESRI shapefile to 3D using a DEM
-version=0.1.1
-author=roberto marzocchi, roberta fagandini, tiziano cosso
+version=0.1.2
+author=roberto marzocchi, roberta fagandini, tiziano cosso (Gter srl - http://www.gter.it)
 email=roberto.marzocchi@gter.it
 
-about=Converts ESRI shapefile vector map to 3D by sampling of elevation raster map
+about=Converts ESRI shapefile vector map to 3D by sampling of elevation raster map. It use the pyshp library (https://github.com/GeospatialPython/pyshp) developed by GeospatialPython. 
 
 tracker=https://github.com/rmarzocchi84/shp2D3.git
 repository=https://github.com/rmarzocchi84/shp2D3.git
@@ -26,7 +26,7 @@ repository=https://github.com/rmarzocchi84/shp2D3.git
 # changelog=
 
 # Tags are comma separated with spaces allowed
-tags=3d , shapefile , elevation data , dem
+tags=3d , shapefile , elevation data , dem, pyshp
 
 homepage=https://github.com/rmarzocchi84/shp2D3.git
 category=Vector
