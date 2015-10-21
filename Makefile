@@ -38,13 +38,13 @@ LOCALES =
 # translation
 SOURCES = \
 	__init__.py \
-	shp2D3.py shp2D3_dialog.py pyshp/shapefile.py GdalTools_utils.py
+	shp2D3.py shp2D3_dialog.py shapefile.py GdalTools_utils.py
 
 PLUGINNAME = shp2D3
 
 PY_FILES = \
 	__init__.py \
-	shp2D3.py shp2D3_dialog.py pyshp/shapefile.py GdalTools_utils.py
+	shp2D3.py shp2D3_dialog.py shapefile.py GdalTools_utils.py
 
 UI_FILES = shp2D3_dialog_base.ui
 
