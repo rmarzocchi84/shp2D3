@@ -10,7 +10,7 @@
 name=shp2D3
 qgisMinimumVersion=2.0
 description=Convert an ESRI shapefile to 3D using a DEM
-version=0.1.2
+version=0.1.3
 author=roberto marzocchi, roberta fagandini, tiziano cosso (Gter srl)
 email=roberto.marzocchi@gter.it
 
