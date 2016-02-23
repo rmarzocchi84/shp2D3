@@ -10,11 +10,11 @@
 name=shp2D3
 qgisMinimumVersion=2.0
 description=Convert an ESRI shapefile to 3D using a DEM
-version=0.1.3
+version=0.1.4
 author=roberto marzocchi, roberta fagandini, tiziano cosso (Gter srl)
 email=roberto.marzocchi@gter.it
 
-about=Converts ESRI shapefile vector map to 3D by sampling of elevation raster map. It use the pyshp library (https://github.com/GeospatialPython/pyshp). - http://www.gter.it
+about=Converts ESRI shapefile vector map to 3D by sampling of elevation raster map. It use the pyshp library (https://github.com/GeospatialPython/pyshp). - Actually works only for PolyLine. Further development will include also Point and Polygons. http://www.gter.it
 
 tracker=https://github.com/rmarzocchi84/shp2D3.git
 repository=https://github.com/rmarzocchi84/shp2D3.git

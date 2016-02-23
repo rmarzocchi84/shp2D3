@@ -275,14 +275,45 @@ class shp2D3:
                 sf = shapefile.Reader(shp=myshp, dbf=mydbf)
                 #quit()
 
+                shapes = sf.shapes()
+				#1 Point
+				#3 PolyLine
+				#5 Polygon
+				#8 MultiPoint
+
+				#11 PointZ
+				#13 PolyLineZ
+				#15 PolygonZ
+				#18 MultiPointZ
+				
+                if (shapes[0].shapeType==1 or shapes[0].shapeType==11):
+				    #w = shapefile.Writer(shapeType=11)
+                    self.iface.messageBar().pushMessage("Error", "Shapefile Type not supported", level=QgsMessageBar.CRITICAL)
+                elif (shapes[0].shapeType==3 or shapes[0].shapeType==13):
+				    w = shapefile.Writer(shapeType=13)
+                elif (shapes[0].shapeType==5 or shapes[0].shapeType==15):
+                    #w = shapefile.Writer(shapeType=15)
+                     self.iface.messageBar().pushMessage("Error", "Shapefile Type not supported", level=QgsMessageBar.CRITICAL)
+                elif (shapes[0].shapeType==8 or shapes[0].shapeType==18):
+                    #w = shapefile.Writer(shapeType=18)
+                    self.iface.messageBar().pushMessage("Error", "Shapefile Type not supported", level=QgsMessageBar.CRITICAL)
+                else: 
+                    self.iface.messageBar().pushMessage("Error", "Shapefile Type not supported", level=QgsMessageBar.CRITICAL)
+
+
 
                 # Create a new shapefile in memory
-                w = shapefile.Writer(shapeType=shapefile.POLYLINEZ)
+                #w = shapefile.Writer(shapeType=shapefile.POLYLINEZ)
                 #output_file.write("2 test\n")
 
-                linea=[]
+                #linea=[]
+                #linea2=[]
                 shapes = sf.shapes()
+                # Copy over the existing fields
+                #w.fields = list(sf.fields)
                 for shape in shapes:
+                    linea=[]
+                    linea2=[]
                     for vertex in shape.points:
                         #print vertex
                         geometria=[]        
@@ -298,17 +329,15 @@ class shp2D3:
                         #print intval[0] 
                         geometria.append(float(intval[0]))
                         linea.append(geometria)
-
-                linea2=[]
-                linea2.append(linea)
-                #print str(linea2)
-
-                w.line(shapeType=13, parts=linea2)
+                        #linea2=[]
+                    linea2.append(linea)
+                    #print str(linea2)
+                    #quit()
+                    w.line(shapeType=13, parts=linea2)
 
                 #output_file.write("3\n")
+            
                 
-                # Copy over the existing fields
-                w.fields = list(sf.fields)
 
                 # Add our new field using the pyshp API
                 #w.field("ELE", "N", 7, 2)
@@ -316,21 +345,19 @@ class shp2D3:
                 # We'll create a counter in this example
                 # to give us sample data to add to the records
                 # so we know the field is working correctly.
-                i=1
+                #i=0
 
                 # Loop through each record, add a column.  We'll
                 # insert our sample data but you could also just
                 # insert a blank string or NULL DATA number
                 # as a place holder
-                for rec in sf.records():
-                    rec.append(i)
-                    i+=1
+                #for rec in sf.records():
+                #    rec.append(i)
+                #    i+=1
 
                 # Add the modified record to the new shapefile 
-                w.records.append(rec)
+                #w.records.append(rec)
 
-                # Copy over the geometry without any changes
-                #w._shapes.extend(sf.shapes(),shapeType=shapefile.POLYLINEZ)
 
                 # Save as a new shapefile (or write over the old one)
                 w.save(shp3)
@@ -349,6 +376,18 @@ class shp2D3:
                         dst="%s.prj" % shp3
                     #output_file.write("4 bis\n")
                     shutil.copyfile(text_prj, dst)
+
+                if os.path.isfile(text_dbf):  
+                    # ok, esiste
+                    #output_file.write("esiste\n")
+                    #string.find(shp3,".shp")
+                    if string.find(shp3,".shp")>0:
+                        dst = shp3.replace(".shp", ".dbf")
+                    else:
+                        dst="%s.dbf" % shp3
+                    #output_file.write("4 bis\n")
+                    shutil.copyfile(text_dbf, dst)
+
                 #else:  
                     # no prj file input
                     #print "cazzarola"
